@@ -18,7 +18,7 @@ public class Book {
     private String title;
     private String author;
     private int publicationYear;
-    private List<Copy> copies;
+    private List<Exemplar> exemplars;
 
     public Book(String title, String author, int publicationYear) {
         this.title = title;
@@ -50,12 +50,11 @@ public class Book {
     }
 
     @OneToMany(
-            targetEntity = Copy.class,
+            targetEntity = Exemplar.class,
             mappedBy = "book",
-            cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    public List<Copy> getCopies() {
-        return copies;
+    public List<Exemplar> getExemplars() {
+        return exemplars;
     }
 }

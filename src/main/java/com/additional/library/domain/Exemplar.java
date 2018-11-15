@@ -12,26 +12,26 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Setter
-public class Copy {
+public class Exemplar {
 
-    private int copyId;
-    private CopyStatus status;
+    private int exemplarId;
+    private ExemplarStatus status;
     private Book book;
 
-    public Copy(CopyStatus status) {
+    public Exemplar(ExemplarStatus status) {
         this.status = status;
     }
 
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "COPY_ID", unique = true)
-    public int getCopyId() {
-        return copyId;
+    @Column(name = "EXEMPLAR_ID", unique = true)
+    public int getExemplarId() {
+        return exemplarId;
     }
 
     @Column(name = "STATUS")
-    public CopyStatus getStatus() {
+    public ExemplarStatus getStatus() {
         return status;
     }
 

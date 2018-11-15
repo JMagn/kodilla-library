@@ -16,7 +16,7 @@ public class Rent {
     private LocalDate rentDate;
     private LocalDate returnDate;
     private Reader reader;
-    private Copy copy;
+    private Exemplar exemplar;
 
     public Rent() {
         this.rentDate = LocalDate.now();
@@ -47,9 +47,9 @@ public class Rent {
         return reader;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "COPY_ID")
-    public Copy getCopy() {
-        return copy;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "EXEMPLAR_ID")
+    public Exemplar getExemplar() {
+        return exemplar;
     }
 }

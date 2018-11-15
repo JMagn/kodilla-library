@@ -1,5 +1,5 @@
 package com.additional.library.domain;
 
-public enum CopyStatus {
+public enum ExemplarStatus {
     AVAILABLE, BORROWED, LOST, DAMAGED
 }
