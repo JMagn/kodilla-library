@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 public class Reader {
 
-    private int readerId;
+    private int id;
     private String name;
     private String lastName;
     private LocalDate accountCreationDate;
@@ -31,9 +31,9 @@ public class Reader {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "READER_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getReaderId() {
-        return readerId;
+        return id;
     }
 
     @Column(name = "NAME")

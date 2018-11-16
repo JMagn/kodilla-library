@@ -8,13 +8,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "COPIES")
+@Table(name = "EXEMPLARS")
 @EqualsAndHashCode
 @NoArgsConstructor
 @Setter
 public class Exemplar {
 
-    private int exemplarId;
+    private int id;
     private ExemplarStatus status;
     private Book book;
 
@@ -25,9 +25,9 @@ public class Exemplar {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "EXEMPLAR_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getExemplarId() {
-        return exemplarId;
+        return id;
     }
 
     @Column(name = "STATUS")

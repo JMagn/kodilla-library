@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 public class Book {
 
-    private int bookId;
+    private int id;
     private String title;
     private String author;
     private int publicationYear;
@@ -29,9 +29,9 @@ public class Book {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "BOOK_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getbookId() {
-        return bookId;
+        return id;
     }
 
     @Column(name = "TITLE")
