@@ -13,5 +13,5 @@ public class ExemplarDto {
 
     private int id;
     private ExemplarStatus status;
-    private String bookTitle;
+    private int bookId;
 }

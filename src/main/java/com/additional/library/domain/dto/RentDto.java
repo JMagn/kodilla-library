@@ -15,7 +15,6 @@ public class RentDto {
     private int id;
     private LocalDate rentDate;
     private LocalDate returnDate;
-    private String readerName;
-    private String readerLastName;
-    private String bookTitle;
+    private int readerId;
+    private int exemplarId;
 }
