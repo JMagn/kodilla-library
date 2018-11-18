@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class Exemplar {
 
-    private int id;
+    private Long id;
     private ExemplarStatus status;
     private Book book;
 
@@ -26,7 +26,7 @@ public class Exemplar {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getExemplarId() {
+    public Long getExemplarId() {
         return id;
     }
 

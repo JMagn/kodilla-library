@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 public class Rent {
 
-    private int id;
+    private Long id;
     private LocalDate rentDate;
     private LocalDate returnDate;
     private Reader reader;
@@ -27,7 +27,7 @@ public class Rent {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getRentId() {
+    public Long getRentId() {
         return id;
     }
 

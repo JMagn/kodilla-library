@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 public class ReaderDto {
 
-    private int id;
+    private Long id;
     private String name;
     private String lastName;
     private LocalDate accountCreationDate;

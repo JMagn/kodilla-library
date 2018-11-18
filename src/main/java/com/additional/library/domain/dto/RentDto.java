@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 public class RentDto {
 
-    private int id;
+    private Long id;
     private LocalDate rentDate;
     private LocalDate returnDate;
-    private int readerId;
-    private int exemplarId;
+    private Long readerId;
+    private Long exemplarId;
 }

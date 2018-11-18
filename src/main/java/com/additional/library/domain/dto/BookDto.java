@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 public class BookDto {
 
-    private int id;
+    private Long id;
     private String title;
     private String author;
-    private int publicationYear;
+    private Long publicationYear;
 }

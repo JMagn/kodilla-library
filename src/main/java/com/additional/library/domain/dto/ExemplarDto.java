@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 public class ExemplarDto {
 
-    private int id;
+    private Long id;
     private ExemplarStatus status;
-    private int bookId;
+    private Long bookId;
 }

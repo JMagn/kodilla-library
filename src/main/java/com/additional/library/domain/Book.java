@@ -14,13 +14,13 @@ import java.util.List;
 @Setter
 public class Book {
 
-    private int id;
+    private Long id;
     private String title;
     private String author;
-    private int publicationYear;
+    private Long publicationYear;
     private List<Exemplar> exemplars;
 
-    public Book(String title, String author, int publicationYear) {
+    public Book(String title, String author, Long publicationYear) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -30,7 +30,7 @@ public class Book {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getbookId() {
+    public Long getbookId() {
         return id;
     }
 
@@ -45,7 +45,7 @@ public class Book {
     }
 
     @Column(name = "PUBLICATION_YEAR")
-    public int getPublicationYear() {
+    public Long getPublicationYear() {
         return publicationYear;
     }
 
