@@ -18,15 +18,16 @@ public class Exemplar {
     private ExemplarStatus status;
     private Book book;
 
-    public Exemplar(ExemplarStatus status) {
+    public Exemplar(ExemplarStatus status, Book book) {
         this.status = status;
+        this.book = book;
     }
 
     @Id
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public Long getExemplarId() {
+    public Long getId() {
         return id;
     }
 

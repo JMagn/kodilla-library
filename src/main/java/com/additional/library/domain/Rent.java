@@ -1,6 +1,7 @@
 package com.additional.library.domain;
 
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "RENTS")
 @EqualsAndHashCode
+@NoArgsConstructor
 @Setter
 public class Rent {
 
@@ -18,8 +20,10 @@ public class Rent {
     private Reader reader;
     private Exemplar exemplar;
 
-    public Rent() {
-        this.rentDate = LocalDate.now();
+    public Rent(LocalDate rentDate, Reader reader, Exemplar exemplar) {
+        this.rentDate = rentDate;
+        this.reader = reader;
+        this.exemplar = exemplar;
         this.returnDate = rentDate.plusDays(28);
     }
 
@@ -27,7 +31,7 @@ public class Rent {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public Long getRentId() {
+    public Long getId() {
         return id;
     }
 
@@ -47,7 +51,7 @@ public class Rent {
         return reader;
     }
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "EXEMPLAR_ID")
     public Exemplar getExemplar() {
         return exemplar;

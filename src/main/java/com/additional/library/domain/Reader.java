@@ -32,7 +32,7 @@ public class Reader {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public Long getReaderId() {
+    public Long getId() {
         return id;
     }
 

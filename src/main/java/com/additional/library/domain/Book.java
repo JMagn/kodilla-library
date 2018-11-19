@@ -17,10 +17,10 @@ public class Book {
     private Long id;
     private String title;
     private String author;
-    private Long publicationYear;
+    private int publicationYear;
     private List<Exemplar> exemplars;
 
-    public Book(String title, String author, Long publicationYear) {
+    public Book(String title, String author, int publicationYear) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -30,7 +30,7 @@ public class Book {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public Long getbookId() {
+    public Long getId() {
         return id;
     }
 
@@ -45,7 +45,7 @@ public class Book {
     }
 
     @Column(name = "PUBLICATION_YEAR")
-    public Long getPublicationYear() {
+    public int getPublicationYear() {
         return publicationYear;
     }
 
