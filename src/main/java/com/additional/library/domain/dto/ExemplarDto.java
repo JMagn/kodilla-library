@@ -1,5 +1,6 @@
 package com.additional.library.domain.dto;
 
+import com.additional.library.domain.ExemplarStatus;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
