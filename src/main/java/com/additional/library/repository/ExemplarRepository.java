@@ -20,4 +20,7 @@ public interface ExemplarRepository extends CrudRepository<Exemplar, Long> {
     Exemplar save(Exemplar exemplar);
 
     int countByBookTitleAndStatus(String title, ExemplarStatus status);
+
+    default int countAvailableByBookTitle(String title) {
+        return countByBookTitleAndStatus(title, ExemplarStatus.AVAILABLE);}
 }

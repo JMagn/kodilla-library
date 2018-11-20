@@ -21,6 +21,6 @@ public class ExemplarMapper {
         if (book == null) {
             return null;
         }
-        return new Exemplar(exemplarDto.getStatus(), book);
+        return new Exemplar(book);
     }
 }

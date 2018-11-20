@@ -21,26 +21,20 @@ public class LibraryController {
 
     @Autowired
     LibraryService libraryService;
-    @Autowired
-    BookMapper bookMapper;
-    @Autowired
-    ExemplarMapper exemplarMapper;
-    @Autowired
-    ReaderMapper readerMapper;
 
     @RequestMapping(method = RequestMethod.POST, value = "/readers", consumes = APPLICATION_JSON_VALUE)
     public Long addReader(@RequestBody ReaderDto readerDto) {
-        return libraryService.saveReader(readerMapper.mapToReader(readerDto));
+        return libraryService.saveReader(readerDto);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/books", consumes = APPLICATION_JSON_VALUE)
     public Long addBook(@RequestBody BookDto bookDto) {
-        return libraryService.saveBook(bookMapper.mapToBook(bookDto));
+        return libraryService.saveBook(bookDto);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/exemplars", consumes = APPLICATION_JSON_VALUE)
     public Long addExemplar(@RequestBody ExemplarDto exemplarDto) {
-        return libraryService.saveExemplar(exemplarMapper.mapToExemplar(exemplarDto));
+        return libraryService.saveExemplar(exemplarDto);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/exemplars", consumes = APPLICATION_JSON_VALUE)

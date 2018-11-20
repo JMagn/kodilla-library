@@ -20,16 +20,14 @@ public class Rent {
     private Reader reader;
     private Exemplar exemplar;
 
-    public Rent(LocalDate rentDate, Reader reader, Exemplar exemplar) {
-        this.rentDate = rentDate;
+    public Rent(Reader reader, Exemplar exemplar) {
+        this.rentDate = LocalDate.now();
         this.reader = reader;
         this.exemplar = exemplar;
-        this.returnDate = rentDate.plusDays(28);
     }
 
     @Id
-    @GeneratedValue
-    @NotNull
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "ID", unique = true)
     public Long getId() {
         return id;
@@ -51,7 +49,7 @@ public class Rent {
         return reader;
     }
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "EXEMPLAR_ID")
     public Exemplar getExemplar() {
         return exemplar;

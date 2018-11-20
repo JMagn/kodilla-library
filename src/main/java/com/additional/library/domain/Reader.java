@@ -28,8 +28,7 @@ public class Reader {
     }
 
     @Id
-    @GeneratedValue
-    @NotNull
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "ID", unique = true)
     public Long getId() {
         return id;
