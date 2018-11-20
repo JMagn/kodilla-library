@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Transactional
-@Repository
 public interface ExemplarRepository extends CrudRepository<Exemplar, Long> {
 
     Optional<Exemplar> findById(Long id);

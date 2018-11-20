@@ -12,5 +12,6 @@ public interface RentRepository extends CrudRepository<Rent, Long> {
 
     Optional<Rent> findByReaderIdAndExemplarId(Long readerId, Long exemplarId);
 
-    Rent save(Long exemplarId, Long readerId);
+    @Override
+    Rent save(Rent rent);
 }
