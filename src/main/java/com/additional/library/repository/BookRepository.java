@@ -12,7 +12,7 @@ import java.util.Optional;
 @Transactional
 public interface BookRepository extends CrudRepository<Book, Long> {
 
-    Optional<Book> findById(Long id);
+    Book findById(Long id);
 
     @Override
     Book save(Book book);

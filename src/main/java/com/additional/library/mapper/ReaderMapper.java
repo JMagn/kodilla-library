@@ -15,7 +15,6 @@ public class ReaderMapper {
         }
         return new Reader(
                 readerDto.getName(),
-                readerDto.getLastName(),
-                readerDto.getAccountCreationDate());
+                readerDto.getLastName());
     }
 }

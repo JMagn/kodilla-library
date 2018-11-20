@@ -17,9 +17,10 @@ public class ExemplarMapper {
     BookRepository bookRepository;
 
     public Exemplar mapToExemplar(final ExemplarDto exemplarDto) {
-        if (exemplarDto == null) {
+        Book book = bookRepository.findById(exemplarDto.getBookId());
+        if (book == null) {
             return null;
         }
-        return new Exemplar(exemplarDto.getStatus(), bookRepository.findById(exemplarDto.getBookId()));
+        return new Exemplar(exemplarDto.getStatus(), book);
     }
 }
