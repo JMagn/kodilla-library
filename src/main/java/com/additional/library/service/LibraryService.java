@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 
 @Service
+@Transactional
 public class LibraryService {
 
     @Autowired
@@ -35,22 +36,30 @@ public class LibraryService {
     @Autowired
     ReaderMapper readerMapper;
 
-    @Transactional
     public Long saveBook(final BookDto bookDto) {
-        return bookRepository.save(bookMapper.mapToBook(bookDto)).getId();
+        Book book = bookMapper.mapToBook(bookDto);
+        if (book == null) {
+            return null;
+        }
+        return bookRepository.save(book).getId();
     }
 
-    @Transactional
     public Long saveReader(final ReaderDto readerDto) {
-        return readerRepository.save(readerMapper.mapToReader(readerDto)).getId();
+        Reader reader = readerMapper.mapToReader(readerDto);
+        if (reader == null) {
+            return null;
+        }
+        return readerRepository.save(reader).getId();
     }
 
-    @Transactional
     public Long saveExemplar(final ExemplarDto exemplarDto) {
-        return exemplarRepository.save(exemplarMapper.mapToExemplar(exemplarDto)).getId();
+        Exemplar exemplar = exemplarMapper.mapToExemplar(exemplarDto);
+        if (exemplar == null) {
+            return null;
+        }
+        return exemplarRepository.save(exemplar).getId();
     }
 
-    @Transactional
     public boolean changeStatus(Long exemplarId, ExemplarStatus newStatus) {
         Exemplar exemplar = exemplarRepository.findById(exemplarId);
         if (exemplar == null) {
@@ -60,7 +69,6 @@ public class LibraryService {
         return true;
     }
 
-    @Transactional
     public int checkQtyByTitle(String title) {
         if(title == null) {
             return 0;
@@ -68,7 +76,6 @@ public class LibraryService {
         return exemplarRepository.countAvailableByBookTitle(title);
     }
 
-    @Transactional
     public boolean borrowBook(Long readerId, Long exemplarId) {
         Exemplar exemplar = exemplarRepository.findById(exemplarId);
         if (readerId == null || exemplar == null) {
@@ -81,7 +88,6 @@ public class LibraryService {
         return false;
     }
 
-    @Transactional
     public boolean returnBook(Long readerId, Long exemplarId) {
         Rent rent = rentRepository.findByReaderIdAndExemplarId(readerId, exemplarId);
         if (rent == null) {
