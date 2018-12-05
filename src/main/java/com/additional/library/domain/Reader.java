@@ -3,7 +3,6 @@ package com.additional.library.domain;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -22,17 +21,16 @@ public class Reader {
     private LocalDate accountCreationDate;
     private List<Rent> rents;
 
-    public Reader(String name, String lastName, LocalDate accountCreationDate) {
+    public Reader(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
-        this.accountCreationDate = accountCreationDate;
+        this.accountCreationDate = LocalDate.now();
     }
 
     @Id
-    @GeneratedValue
-    @NotNull
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "ID", unique = true)
-    public Long getReaderId() {
+    public Long getId() {
         return id;
     }
 
